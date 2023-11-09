@@ -1,0 +1,17 @@
+.footer {
+  // background: url(../../../assets/home/image/bg-footer.png);
+  // fill: url(../../../assets/home/image/bg-sh-footer.png);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.034),
+      rgba(0, 14, 34, 0.772),
+      rgba(0, 14, 34, 0.772),
+      rgba(0, 14, 34, 0.772),
+      rgba(0, 14, 34, 0.815),
+      rgba(0, 14, 34, 0.799),
+      rgba(0, 14, 34, 0.779),
+      rgba(0, 1, 28, 0.763)
+    ),
+    url(../../../assets/home/image/bg-footer.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

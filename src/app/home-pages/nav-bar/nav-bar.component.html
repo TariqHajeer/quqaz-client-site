@@ -1,0 +1,62 @@
+<div class="header-container">
+  <div class="header-left">
+    <button class="btn nav-button">تسجيل دخول كعميل</button>
+  </div>
+  <nav class="header-center">
+    <ul>
+      <li>
+        <a
+          [ngClass]="{ active: index == 5 }"
+          [routerLink]="'/home/join-team'"
+          (click)="changeActiveRoute(5)"
+          >انضم لنا</a
+        >
+      </li>
+      <li>
+        <a
+          [ngClass]="{ active: index == 4 }"
+          [routerLink]="'/home/out-orders'"
+          (click)="changeActiveRoute(4)"
+          >طلبات خارجية</a
+        >
+      </li>
+      <li>
+        <a
+          [ngClass]="{ active: index == 3 }"
+          [routerLink]="'/home/clients'"
+          (click)="changeActiveRoute(3)"
+          >عملاؤنا</a
+        >
+      </li>
+      <li>
+        <a
+          [ngClass]="{ active: index == 2 }"
+          [routerLink]="'/home/folow-order'"
+          (click)="changeActiveRoute(2)"
+        >
+          تتبع شحنتك</a
+        >
+      </li>
+      <li>
+        <a
+          [ngClass]="{ active: index == 1 }"
+          [routerLink]="'/home/salary-orders'"
+          (click)="changeActiveRoute(1)"
+          >أسعارنا
+        </a>
+      </li>
+      <li>
+        <a
+          [ngClass]="{ active: index == 0 }"
+          [routerLink]="'/home'"
+          (click)="changeActiveRoute(0)"
+        >
+          الرئيسية
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="header-right">
+    <i class="nav-logo"></i>
+  </div>
+</div>

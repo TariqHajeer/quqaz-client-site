@@ -1,0 +1,186 @@
+<div class="grid my-4 mx-8">
+  <div class="col-12">
+    <p-card class="p-0 w-6">
+      <div class="grid">
+        <div class="col-12 dir-rtl">
+          <label for="" class="text-right block mx-8 mb-2"> رقم الشحنة</label>
+          <input type="text" pInputText class="w-10 mx-8" />
+        </div>
+        <div class="col-12 md:col-6 dir-rtl">
+          <label for="" class="text-right block mx-8 mb-2"> المحافظة</label>
+          <input type="text" pInputText class="w-8 mx-8" />
+        </div>
+        <div class="col-12 md:col-6 dir-rtl">
+          <label for="" class="text-right block mx-8 mb-2"> رقم الهاتف </label>
+          <input type="text" pInputText class="w-8 mx-8" />
+        </div>
+        <div class="col-12 dir-rtl">
+          <p-button
+            label=" تتبع الان"
+            styleClass="p-button-danger bg-red-800 w-8 md:w-10 mx-8"
+            icon="pi pi-arrow-circle-left"
+            style="direction: ltr"
+          ></p-button>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
+<div class="grid my-4 mx-8 dir-rtl">
+  <p-card class="col-12 p-8" style="margin-block-end: -30rem; z-index: 9999">
+    <div class="grid">
+      <div class="col-4">
+        <i class="pi pi-map-marker"></i>
+      </div>
+      <div class="col-4 text-center">
+        <svg
+          width="38"
+          height="38"
+          viewBox="0 0 38 38"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.95899 24.542C3.51565 24.542 3.16732 24.8903 3.16732 25.3337V26.917C3.16732 29.5453 5.28899 31.667 7.91732 31.667C7.91732 29.0545 10.0548 26.917 12.6673 26.917C15.2798 26.917 17.4173 29.0545 17.4173 31.667H20.584C20.584 29.0545 22.7215 26.917 25.334 26.917C27.9465 26.917 30.084 29.0545 30.084 31.667C32.7123 31.667 34.834 29.5453 34.834 26.917V23.7503C34.834 22.8795 34.1215 22.167 33.2507 22.167H18.209C16.024 22.167 14.2507 20.3937 14.2507 18.2087V9.50033C14.2507 8.62949 13.5382 7.91699 12.6673 7.91699H11.3373C10.1973 7.91699 9.15232 8.53449 8.58232 9.51616L7.56899 11.2895C7.42649 11.5428 7.61649 11.8753 7.91732 11.8753C10.1023 11.8753 11.8757 13.6487 11.8757 15.8337V20.5837C11.8757 22.7687 10.1023 24.542 7.91732 24.542H3.95899Z"
+            fill="#880817"
+          />
+          <path
+            d="M25.3333 34.8333C23.5844 34.8333 22.1667 33.4156 22.1667 31.6667C22.1667 29.9178 23.5844 28.5 25.3333 28.5C27.0822 28.5 28.5 29.9178 28.5 31.6667C28.5 33.4156 27.0822 34.8333 25.3333 34.8333Z"
+            fill="#880817"
+          />
+          <path
+            d="M12.6673 34.8333C10.9184 34.8333 9.50065 33.4156 9.50065 31.6667C9.50065 29.9178 10.9184 28.5 12.6673 28.5C14.4162 28.5 15.834 29.9178 15.834 31.6667C15.834 33.4156 14.4162 34.8333 12.6673 34.8333Z"
+            fill="#880817"
+          />
+          <path
+            d="M3.16667 19.8392V22.1667H7.91667C8.7875 22.1667 9.5 21.4542 9.5 20.5833V15.8333C9.5 14.9625 8.7875 14.25 7.91667 14.25H5.87417L3.57833 18.2717C3.30917 18.7467 3.16667 19.285 3.16667 19.8392Z"
+            fill="#880817"
+          />
+          <path
+            d="M17.2887 3.16699H28.9895C31.8237 3.16699 34.1987 5.19366 34.7212 7.88533H27.802C27.2004 7.88533 26.7254 8.37616 26.7254 8.97783C26.7254 9.57949 27.2004 10.0545 27.802 10.0545H34.832V12.2395H30.7154C30.1137 12.2395 29.6229 12.7303 29.6229 13.332C29.6229 13.9337 30.1137 14.4087 30.7154 14.4087H34.832V16.5937H33.6129C33.0112 16.5937 32.5204 17.0845 32.5204 17.6862C32.5204 18.2878 33.0112 18.7628 33.6129 18.7628H34.832V19.127C34.832 19.9978 34.1195 20.7103 33.2487 20.7103H18.7612C17.1462 20.7103 15.832 19.3962 15.832 17.7812V4.62366C15.832 3.81616 16.4812 3.16699 17.2887 3.16699Z"
+            fill="#880817"
+          />
+          <path
+            d="M34.7218 7.88574H34.9593H36.511C37.1127 7.88574 37.6035 8.37658 37.6035 8.97824C37.6035 9.57991 37.1127 10.0549 36.511 10.0549H35.0702H34.8327V9.00991C34.8327 8.62991 34.7852 8.24991 34.7218 7.88574Z"
+            fill="#880817"
+          />
+          <path
+            d="M35.0702 12.2393H36.511C37.1127 12.2393 37.6035 12.7301 37.6035 13.3318C37.6035 13.9334 37.1127 14.4084 36.511 14.4084H35.0702H34.8327V12.2393H35.0702Z"
+            fill="#880817"
+          />
+          <path
+            d="M35.0702 16.5938H36.511C37.1127 16.5938 37.6035 17.0846 37.6035 17.6863C37.6035 18.2879 37.1127 18.7629 36.511 18.7629H35.0702H34.8327V16.5938H35.0702Z"
+            fill="#880817"
+          />
+        </svg>
+      </div>
+      <div class="col-4 text-left">
+        <i class="pi pi-map-marker"></i>
+      </div>
+    </div>
+    <div
+      class="w-full white-space-nowrap overflow-hidden text-overflow-clip"
+      style="color: rgba(135, 135, 134, 1)"
+    >
+      ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+      ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+      ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+      ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+      ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+      ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+    </div>
+    <div class="grid" style="color: rgba(135, 135, 134, 1)">
+      <div class="col-4">
+        <div class="mt-1 mb-2">الانطلاق</div>
+        <div class="text-xs">الاربعا, 10ديسمبر</div>
+      </div>
+      <div class="col-4 text-center">
+        <div class="mt-1 mb-2">بغداد ,شارع النصر</div>
+        <div class="text-xs">الاربعا, 10ديسمبر</div>
+      </div>
+      <div class="col-4 text-left">
+        <div class="mt-1 mb-2">مكان التسليم</div>
+        <div class="text-xs">الجمعة, 12ديسمبر</div>
+      </div>
+    </div>
+  </p-card>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1715305.5195395777!2d46.85025091009682!3d32.89271888861891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x15577f67a0a74193%3A0x9deda9d2a3b16f2c!2z2KjYutiv2KfYr9iMINin2YTYudix2KfZguKArQ!3m2!1d33.315241!2d44.366067099999995!4m5!1s0x3fe684d5d2d92977%3A0x3be589c8ad22e5cf!2z2LnZhNmKINin2YTYutix2KjZitiMINin2YTYudix2KfZguKArQ!3m2!1d32.4637735!2d46.6850215!5e0!3m2!1sar!2s!4v1696683584245!5m2!1sar!2s"
+    style="border: 1; border-radius: 10px"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    class="w-full h-screen"
+  ></iframe>
+</div>
+<div class="col-12 my-4">
+  <p-card styleClass="mx-8 p-0">
+    <h3 class="text-500 text-right mt-0">معلومات الشحنة</h3>
+    <li class="text-red-800 pi pi-box text-left"></li>
+    <p-divider></p-divider>
+    <div class="grid text-500 text-right">
+      <div class="col">
+        <div class="m-1">الأصل</div>
+        <div class="m-1 mt-5 font-bold">حي الجامعة- مقابل شارع بكولاته</div>
+      </div>
+      <div class="col">
+        <div class="m-1">الوجهة</div>
+        <div class="m-1 mt-5 font-bold">حي الجامعة- مقابل شارع بكولاته</div>
+      </div>
+      <div class="col">
+        <div class="m-1">رقم المندوب</div>
+        <div class="m-1 mt-5 font-bold">07753320025552</div>
+      </div>
+    </div>
+  </p-card>
+</div>
+<div class="col-12 my-4">
+  <div class="grid mx-8 dir-rtl">
+    <div class="col-12 md:col-6">
+      <p-card styleClass=" p-0">
+        <h3 class="text-500 text-right mt-0">تفاصيل مكان النقل</h3>
+        <li class="text-red-800 pi pi-box text-left"></li>
+        <p-divider></p-divider>
+        <div class="grid text-500 text-right">
+          <div class="col">
+            <div class="m-1">تاريخ استلام الشحنة</div>
+            <div class="m-1 mt-5 font-bold">10-12-2023</div>
+          </div>
+          <div class="col">
+            <div class="m-1">رقم الهاتف</div>
+            <div class="m-1 mt-5 font-bold">0452365200</div>
+          </div>
+          <div class="col">
+            <div class="m-1">اسم المتجر</div>
+            <div class="m-1 mt-5 font-bold">HUDA BAUTY</div>
+          </div>
+          <div class="col">
+            <div class="m-1">المبلغ مع التوصيل</div>
+            <div class="m-1 mt-5 font-bold">50000</div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-card styleClass="8 p-0">
+        <h3 class="text-500 text-right mt-0">تفاصيل التسليم</h3>
+        <li class="text-red-800 pi pi-box text-left"></li>
+        <p-divider></p-divider>
+        <div class="grid text-500 text-right">
+          <div class="col">
+            <div class="m-1">عنوان المستلم</div>
+            <div class="m-1 mt-5 font-bold">حي الجامعة- مقابل شارع بكولاته</div>
+          </div>
+          <div class="col">
+            <div class="m-1">رقم هاتف المستلم</div>
+            <div class="m-1 mt-5 font-bold">07753320025552</div>
+          </div>
+          <div class="col">
+            <div class="m-1">تاريخ المتوقع للاستلام</div>
+            <div class="m-1 mt-5 font-bold">22-12-2023</div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+header.bg-header-main,
+header.bg-header-out-orders,
+header.bg-header-salary-orders,
+header.bg-header-folow-order,
+header.bg-header-join-team,
+header.bg-header-clients {
+  position: relative;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #454545 0%, rgba(72, 74, 64, 0) 100%);
+  }
+
+  .header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+
+    .header-title {
+      color: #880817;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      background-color: #fff;
+      color: #333;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 30px;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+}
+.bg-header-main {
+  background-image: url("../../../assets/home/image/bg-image.png");
+}
+.bg-header-out-orders {
+  background-image: url("../../../assets/home/image/bg-out-orders.png");
+}
+.bg-header-salary-orders {
+  background-image: url("../../../assets/home/image/bg-salary.png");
+}
+.bg-header-folow-order {
+  background-image: url("../../../assets/home/image/bg-folow-orders.png");
+}
+.bg-header-join-team {
+  background-image: url("../../../assets/home/image/bg-join.png");
+}
+.bg-header-clients {
+  background-image: url("../../../assets/home/image/bg-clients.png");
+}
+.header-end {
+  position: absolute;
+  top: 70%;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+
+  .col h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 0px;
+  }
+}
+.sub-header-text {
+  position: absolute;
+  top: 30%;
+  right: 2%;
+  // transform: translate(-50%, -50%);
+  text-align: right;
+  color: #fff;
+}
