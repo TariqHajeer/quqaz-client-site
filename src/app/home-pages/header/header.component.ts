@@ -15,22 +15,22 @@ export class HeaderComponent implements OnInit {
   }
   setIndex() {
     switch (this.router.url) {
-      case '/home':
+      case '':
         this.routeIndex = 0;
         break;
-      case '/home/salary-orders':
+      case '/salary-orders':
         this.routeIndex = 1;
         break;
-      case '/home/folow-order':
+      case '/folow-order':
         this.routeIndex = 2;
         break;
-      case '/home/clients':
+      case '/clients':
         this.routeIndex = 3;
         break;
-      case '/home/out-orders':
+      case '/out-orders':
         this.routeIndex = 4;
         break;
-      case '/home/join-team':
+      case '/join-team':
         this.routeIndex = 5;
         break;
       default:

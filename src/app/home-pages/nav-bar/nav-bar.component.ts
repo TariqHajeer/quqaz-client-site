@@ -16,22 +16,22 @@ export class NavBarComponent implements OnInit {
   }
   setIndex() {
     switch (this.router.url) {
-      case '/home':
+      case '':
         this.index = 0;
         break;
-      case '/home/salary-orders':
+      case '/salary-orders':
         this.index = 1;
         break;
-      case '/home/folow-order':
+      case '/folow-order':
         this.index = 2;
         break;
-      case '/home/clients':
+      case '/clients':
         this.index = 3;
         break;
-      case '/home/out-orders':
+      case '/out-orders':
         this.index = 4;
         break;
-      case '/home/join-team':
+      case '/join-team':
         this.index = 5;
         break;
       default:
