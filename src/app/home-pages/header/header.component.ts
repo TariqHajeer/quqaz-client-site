@@ -1,5 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { HomeService } from 'src/app/_services/home.service';
+import { StatisticsDto } from 'src/app/_store/Statistics';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +10,26 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   routeIndex: number = 0;
-  constructor(private router: Router) { }
+  statistics: StatisticsDto | undefined;
+
+  constructor(private router: Router,
+    private homeService: HomeService) { }
 
   ngOnInit(): void {
     this.setIndex();
+    console.log(this.router.url);
+
+    if (this.router.url == '/') {
+      this.homeService.getStatistics().subscribe({
+        next: (data) => {
+          this.statistics = data;
+        }
+      })
+    }
   }
   setIndex() {
     switch (this.router.url) {
-      case '':
+      case '/':
         this.routeIndex = 0;
         break;
       case '/salary-orders':
