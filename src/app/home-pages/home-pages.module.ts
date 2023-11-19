@@ -18,6 +18,8 @@ import { SalaryOrdersComponent } from './salary-orders/salary-orders.component';
 import { JoinTeamComponent } from './join-team/join-team.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { DividerModule } from 'primeng/divider';
+import { CarouselModule } from 'primeng/carousel';
+
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { DividerModule } from 'primeng/divider';
     InputTextModule,
     ButtonModule,
     GalleriaModule,
-    DividerModule
+    DividerModule,
+    CarouselModule
   ]
 })
 export class HomePagesModule { }
