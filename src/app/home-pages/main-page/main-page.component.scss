@@ -205,3 +205,24 @@
   margin-bottom: 2rem;
   margin-right: 4rem;
 }
+
+.file-name {
+  background: #d9e8ff80;
+  border-radius: 8px;
+  direction: rtl;
+  width: 100%;
+  min-height: 45px;
+  border: #880817 1px solid;
+  color: #880817;
+  padding: 6px;
+  background-color: #fff;
+  text-align: center;
+  word-wrap: normal;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.pi.pi-times:hover {
+  transform: scale(1.1) !important;
+  box-shadow: #d9e8ff80;
+}

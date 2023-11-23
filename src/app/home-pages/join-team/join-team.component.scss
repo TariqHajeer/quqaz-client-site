@@ -1,0 +1,23 @@
+::ng-deep .p-fileupload-choose:not(.p-disabled):hover {
+  transform: scale(1.1) !important;
+}
+.file-name {
+  background: #d9e8ff80;
+  border-radius: 25px;
+  direction: rtl;
+  width: 214px;
+  min-height: 45px;
+  border: #880817 1px solid;
+  color: #880817;
+  padding: 10px;
+  background-color: #fff;
+  text-align: center;
+  word-wrap: normal;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.pi.pi-times:hover {
+  transform: scale(1.1) !important;
+  box-shadow: #d9e8ff80;
+}

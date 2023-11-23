@@ -8,3 +8,4 @@ export class ApiUrls {
 
 export class ApiActions {
 }
+export const ShipmentTracking = "ShipmentTracking";

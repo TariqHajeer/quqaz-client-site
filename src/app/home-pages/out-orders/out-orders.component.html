@@ -1,28 +1,121 @@
 <div class="grid my-4 mx-8">
   <div class="col-12">
     <p-card class="p-0 w-6">
-      <div class="grid">
+      <div class="grid dir-rtl" [formGroup]="requestExternalShipmentForm">
         <div class="col-12 md:col-6 dir-rtl">
           <label for="" class="text-right block mx-8 mb-2">الشحن من</label>
-          <input type="text" pInputText class="w-8 mx-8" />
+          <input
+            type="text"
+            pInputText
+            class="w-8 mx-8"
+            formControlName="from"
+          />
+          <small
+            class="text-red-600 mx-8 w-8"
+            *ngIf="
+              requestExternalShipmentForm.controls['from'].errors &&
+              requestExternalShipmentForm.controls['from'].touched
+            "
+          >
+            {{
+              requestExternalShipmentForm.controls["from"].errors["required"]
+                ?.message
+            }}
+          </small>
         </div>
         <div class="col-12 md:col-6 dir-rtl">
           <label for="" class="text-right block mx-8 mb-2">الشحن إلى </label>
-          <input type="text" pInputText class="w-8 mx-8" />
+          <input type="text" pInputText class="w-8 mx-8" formControlName="to" />
+          <small
+            class="text-red-600 mx-8 w-8"
+            *ngIf="
+              requestExternalShipmentForm.controls['to'].errors &&
+              requestExternalShipmentForm.controls['to'].touched
+            "
+          >
+            {{
+              requestExternalShipmentForm.controls["to"].errors["required"]
+                ?.message
+            }}
+          </small>
         </div>
         <div class="col-12 md:col-6 dir-rtl">
           <label for="" class="text-right block mx-8 mb-2"
             >البريد الالكتروني</label
           >
-          <input type="text" pInputText class="w-8 mx-8" />
+          <input
+            type="text"
+            pInputText
+            class="w-8 mx-8"
+            formControlName="email"
+          />
+          <small
+            class="text-red-600 w-8 mx-8"
+            *ngIf="
+              requestExternalShipmentForm.controls['email'].errors &&
+              requestExternalShipmentForm.controls['email'].touched
+            "
+          >
+            {{
+              requestExternalShipmentForm.controls["email"].errors["required"]
+                ?.message
+            }}
+            {{
+              requestExternalShipmentForm.controls["email"].errors["email"]
+                ?.message
+            }}
+          </small>
         </div>
         <div class="col-12 md:col-6 dir-rtl">
           <label for="" class="text-right block mx-8 mb-2">رقم المحمول </label>
-          <input type="text" pInputText class="w-8 mx-8" />
+          <input
+            type="text"
+            pInputText
+            class="w-8 mx-8"
+            formControlName="phone"
+          />
+          <small
+            class="text-red-600 w-8 mx-8"
+            *ngIf="
+              requestExternalShipmentForm.controls['phone'].errors &&
+              requestExternalShipmentForm.controls['phone'].touched
+            "
+          >
+            {{
+              requestExternalShipmentForm.controls["phone"].errors["required"]
+                ?.message
+            }}
+            {{
+              requestExternalShipmentForm.controls["phone"].errors["maxLength"]
+                ?.message
+            }}
+          </small>
         </div>
         <div class="col-12 dir-rtl">
           <label for="" class="text-right block mx-8 mb-2"> رابط المنتج</label>
-          <input type="text" pInputText class="md:w-10 w-8 mx-8" />
+          <input
+            type="text"
+            pInputText
+            class="md:w-10 w-8 mx-8"
+            formControlName="productUrl"
+          />
+          <small
+            class="text-red-600 md:w-10 w-8 mx-8"
+            *ngIf="
+              requestExternalShipmentForm.controls['productUrl'].errors &&
+              requestExternalShipmentForm.controls['productUrl'].touched
+            "
+          >
+            {{
+              requestExternalShipmentForm.controls["productUrl"].errors[
+                "required"
+              ]?.message
+            }}
+            {{
+              requestExternalShipmentForm.controls["productUrl"].errors["url"]
+                ?.message
+            }}
+          </small>
           <div class="md:w-10 w-8 mx-8 my-4 text-sm text-500">
             سيتم ارسال كلفة و تفاصيل الشحن الخاصة بطلبك
           </div>
@@ -31,6 +124,9 @@
           <p-button
             label=" ارسال"
             styleClass="p-button-danger bg-red-800 w-8 md:w-10 mx-8"
+            (onClick)="requestExternalShipment()"
+            [loading]="loading"
+            [disabled]="loading || requestExternalShipmentForm.invalid"
           ></p-button>
         </div>
       </div>

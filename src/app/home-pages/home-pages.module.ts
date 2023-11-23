@@ -19,8 +19,15 @@ import { JoinTeamComponent } from './join-team/join-team.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { DividerModule } from 'primeng/divider';
 import { CarouselModule } from 'primeng/carousel';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { DropdownModule } from 'primeng/dropdown';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { FileUploadModule } from 'primeng/fileupload';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { ToastMessageService } from '../_services/toast-message.service';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, HomePagesComponent, MainPageComponent,
@@ -38,7 +45,16 @@ import { CarouselModule } from 'primeng/carousel';
     ButtonModule,
     GalleriaModule,
     DividerModule,
-    CarouselModule
-  ]
+    CarouselModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RxReactiveFormsModule,
+    DropdownModule,
+    DialogModule,
+    InputTextareaModule,
+    FileUploadModule,
+    ToastModule
+  ],
+  providers: [MessageService, ToastMessageService]
 })
 export class HomePagesModule { }

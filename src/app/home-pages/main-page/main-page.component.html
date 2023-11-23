@@ -151,28 +151,89 @@
         </p>
       </div>
       <p-card class="p-0 w-6">
-        <div class="grid">
-          <div class="col-12">
-            <label for="" class="text-right">رقم الشحنة</label>
-            <input type="text" pInputText class="w-full" />
-          </div>
-          <div class="col-12 grid">
-            <div class="col-12 md:col-6">
-              <label for="" class="text-right">المحافظة</label>
-              <input type="text" pInputText class="w-full" />
+        <form [formGroup]="shipmentForm">
+          <div class="grid">
+            <div class="col-12">
+              <label for="" class="text-right">رقم الشحنة</label>
+              <input
+                type="text"
+                pInputText
+                class="w-full"
+                formControlName="code"
+              />
+              <small
+                class="text-red-600"
+                *ngIf="
+                  shipmentForm.controls['code'].errors &&
+                  shipmentForm.controls['code'].touched
+                "
+              >
+                {{ shipmentForm.controls["code"].errors["required"]?.message }}
+                {{
+                  shipmentForm.controls["code"].errors["alphaNumeric"]?.message
+                }}
+              </small>
             </div>
-            <div class="col-12 md:col-6">
-              <label for="" class="text-right">رقم الهاتف</label>
-              <input type="text" pInputText class="w-full" />
+            <div class="col-12 grid">
+              <div class="col-12 md:col-6">
+                <label for="" class="text-right col-12">المحافظة</label>
+                <p-dropdown
+                  formControlName="country"
+                  [options]="countries"
+                  optionLabel="name"
+                  optionValue="id"
+                  styleClass="w-full"
+                  placeholder="اختر محافظة"
+                  [showClear]="true"
+                  [filter]="true"
+                ></p-dropdown>
+                <small
+                  class="text-red-600"
+                  *ngIf="
+                    shipmentForm.controls['country'].errors &&
+                    shipmentForm.controls['country'].touched
+                  "
+                >
+                  {{
+                    shipmentForm.controls["country"].errors["required"]?.message
+                  }}
+                </small>
+              </div>
+              <div class="col-12 md:col-6">
+                <label for="" class="text-right">رقم الهاتف</label>
+                <input
+                  type="text"
+                  pInputText
+                  class="w-full"
+                  formControlName="phone"
+                />
+                <small
+                  class="text-red-600"
+                  *ngIf="
+                    shipmentForm.controls['phone'].errors &&
+                    shipmentForm.controls['phone'].touched
+                  "
+                >
+                  {{
+                    shipmentForm.controls["phone"].errors["required"]?.message
+                  }}
+                  {{
+                    shipmentForm.controls["phone"].errors["maxLength"]?.message
+                  }}
+                </small>
+              </div>
+            </div>
+            <div class="col-12">
+              <p-button
+                label="تتبع الان"
+                styleClass="p-button-danger w-full"
+                (onClick)="trakingShipmient()"
+                [loading]="trakingShipmientLoading"
+                [disabled]="trakingShipmientLoading"
+              ></p-button>
             </div>
           </div>
-          <div class="col-12">
-            <p-button
-              label="تتبع الان"
-              styleClass="p-button-danger w-full"
-            ></p-button>
-          </div>
-        </div>
+        </form>
       </p-card>
     </div>
   </div>
@@ -309,7 +370,7 @@
     <div class="col-12 md:col-4">
       <p-card styleClass="ml-4">
         <h4>احجز صندوقك البريدي الان</h4>
-        <div class="grid">
+        <div class="grid" [formGroup]="reserveMailBoxForm">
           <div class="col-12">
             <label for="email1" class="block text-900 font-medium mb-2"
               >الاسم</label
@@ -319,7 +380,19 @@
               type="text"
               pInputText
               class="w-full mb-2 surface-section"
+              formControlName="name"
             />
+            <small
+              class="text-red-600"
+              *ngIf="
+                reserveMailBoxForm.controls['name'].errors &&
+                reserveMailBoxForm.controls['name'].touched
+              "
+            >
+              {{
+                reserveMailBoxForm.controls["name"].errors["required"]?.message
+              }}
+            </small>
           </div>
           <div class="col-12">
             <label for="email1" class="block text-900 font-medium mb-2"
@@ -330,7 +403,22 @@
               type="text"
               pInputText
               class="w-full mb-2 surface-section"
+              formControlName="email"
             />
+            <small
+              class="text-red-600"
+              *ngIf="
+                reserveMailBoxForm.controls['email'].errors &&
+                reserveMailBoxForm.controls['email'].touched
+              "
+            >
+              {{
+                reserveMailBoxForm.controls["email"].errors["required"]?.message
+              }}
+              {{
+                reserveMailBoxForm.controls["email"].errors["email"]?.message
+              }}
+            </small>
           </div>
           <div class="col-12">
             <label for="email1" class="block text-900 font-medium mb-2"
@@ -341,12 +429,32 @@
               type="text"
               pInputText
               class="w-full mb-2 surface-section"
+              formControlName="phone"
             />
+            <small
+              class="text-red-600"
+              *ngIf="
+                reserveMailBoxForm.controls['phone'].errors &&
+                reserveMailBoxForm.controls['phone'].touched
+              "
+            >
+              {{
+                reserveMailBoxForm.controls["phone"].errors["required"]?.message
+              }}
+              {{
+                reserveMailBoxForm.controls["phone"].errors["maxLength"]
+                  ?.message
+              }}
+            </small>
           </div>
+
           <div class="col-12 flex justify-content-center flex-wrap">
             <p-button
               label="إرسال"
               styleClass="p-button-danger px-6"
+              (onClick)="reserveMailBox()"
+              [loading]="reserveMailBoxLoading"
+              [disabled]="reserveMailBoxLoading"
             ></p-button>
           </div>
         </div>
@@ -362,14 +470,11 @@
   </div>
   <!-- quote -->
   <div class="col-12 bg-quote text-right my-2 h-screen pt-6">
-    <p-card styleClass="m-8 w-5">
-      <div class="flex">
-        <div class="flex">
+    <p-card styleClass="mt-8 mx-8 w-5">
+      <div class="flex justify-content-between flex-wrap">
+        <div class="flex h-10rem">
           <h4>
-            من أفضل الشركات الموجودة والتي تعاملت معها الى حد الأن خدمتهم سريعة
-            و ممتازة الدعم الفني سريع المتسوق الشخصي امين و يختار لك الأفضل من
-            البضائع و بأغضل الأسعار حقا شكرا لهم و أتمنى لهم المزيد من النجاح و
-            التقدم ربي يوفقكم هذا رأي بهذه الشركة
+            {{ clientMessages?.message }}
           </h4>
         </div>
         <div class="flex">
@@ -391,22 +496,148 @@
         <div class="flex">
           <img
             class="border-circle border-solid border-red-600 p-2 w-6rem h-6rem"
-            src="assets/home/image/logo.png"
+            [src]="clientMessages?.logo ?? 'assets/home/image/user-logo.png'"
             alt=""
           />
+          <!-- <div class="d-flex flex-row">
+            {{ clientMessages?.name }}
+          </div> -->
         </div>
-        <div class="flex mr-8 mt-4 pr-8">
+        <div class="flex mr-8 mt-4 pr-8" *ngIf="clientMessagePaging">
           <p-button
             styleClass="p-button-outlined p-button-secondary ml-2 mr-8"
             icon="pi pi-arrow-right"
+            (onClick)="getPreviousClientMessages()"
+            [disabled]="clientMessagePaging.Page <= 1"
           ></p-button>
           <p-button
             styleClass="p-button-outlined p-button-danger"
             icon="pi pi-arrow-left"
+            (onClick)="getNextClientMessages()"
+            [disabled]="clientMessageTotal <= clientMessagePaging.Page"
           ></p-button>
         </div>
       </div>
     </p-card>
+    <a class="cursor-pointer" (click)="visibleCustomerMessage = true">
+      <div class="text-white m-2 mr-6 grid">
+        <i class="icon-chat"></i>
+        <div class="col mt-2">اضغط هنا وشاركنا برأيك ...</div>
+      </div>
+    </a>
+    <p-dialog [(visible)]="visibleCustomerMessage" [style]="{ width: '50vw' }">
+      <ng-template pTemplate="header">
+        <h3>رايك يهمنا</h3>
+      </ng-template>
+      <form [formGroup]="clientMessageForm">
+        <div class="grid">
+          <div class="col-12 md:col-6">
+            <label for="" class="text-right"> الاسم</label>
+            <input
+              type="text"
+              pInputText
+              class="w-full"
+              formControlName="Name"
+            />
+            <small
+              class="text-red-600"
+              *ngIf="
+                clientMessageForm.controls['Name'].errors &&
+                clientMessageForm.controls['Name'].touched
+              "
+            >
+              {{
+                clientMessageForm.controls["Name"].errors["required"]?.message
+              }}
+            </small>
+          </div>
+          <div class="col-12 md:col-6">
+            <label for="" class="text-right"> الصورة الشخصية</label>
+
+            <p-fileUpload
+              mode="basic"
+              chooseLabel="  اضغط هنا "
+              [chooseIcon]="''"
+              name="photo[]"
+              accept="image/*"
+              [maxFileSize]="5000000"
+              [style]="{
+                background: '#D9E8FF80',
+                'border-radius': '8px',
+                direction: 'rtl',
+                width: '100%',
+                height: '45px',
+                border: '#880817 1px solid',
+                color: '#880817',
+                padding: '10px',
+                'background-color': '#fff'
+              }"
+              [showUploadButton]="false"
+              [customUpload]="true"
+              [auto]="true"
+              (onSelect)="onUploadClientPhoto($event)"
+              *ngIf="!clientMessageForm.value.Logo"
+              #file
+            ></p-fileUpload>
+            <div
+              class="flex justify-content-between flex-wrap file-name"
+              *ngIf="clientMessageForm.value.Logo"
+            >
+              <div class="flex" (click)="clearFile()">
+                <i class="pi pi-times m-2"></i>
+              </div>
+              <div class="flex">
+                {{
+                  fileName.length > 15 ? fileName.substring(0, 15) : fileName
+                }}
+              </div>
+            </div>
+            <small
+              class="text-red-600"
+              *ngIf="
+                clientMessageForm.controls['Logo'].errors &&
+                clientMessageForm.controls['Logo'].touched
+              "
+            >
+              {{
+                clientMessageForm.controls["Logo"].errors["required"]?.message
+              }}
+            </small>
+          </div>
+          <div class="col-12">
+            <label for="" class="text-right"> ملاحظاتك</label>
+            <textarea
+              rows="5"
+              cols="30"
+              pInputTextarea
+              formControlName="Message"
+              class="w-full"
+            ></textarea>
+            <small
+              class="text-red-600"
+              *ngIf="
+                clientMessageForm.controls['Message'].errors &&
+                clientMessageForm.controls['Message'].touched
+              "
+            >
+              {{
+                clientMessageForm.controls["Message"].errors["required"]
+                  ?.message
+              }}
+            </small>
+          </div>
+          <div class="col-12">
+            <p-button
+              label=" ارسال"
+              styleClass="p-button-danger w-full"
+              (onClick)="createClientMessage()"
+              [loading]="clientMessageLoading"
+              [disabled]="clientMessageLoading"
+            ></p-button>
+          </div>
+        </div>
+      </form>
+    </p-dialog>
   </div>
   <!-- details -->
   <div class="col-12 grid dir-rtl my-2 pt-6">
@@ -627,59 +858,15 @@
       </svg>
     </div>
     <div class="col-12 md:col-5">
-      <div class="map-cards">
+      <div class="map-cards" *ngFor="let item of branches">
         <div class="my-2 flex justify-content-between flex-wrap">
-          <span class="flex">فرع كركوك</span>
+          <span class="flex">{{ item.name }}</span>
           <i class="pi pi-angle-down flex"></i>
         </div>
-        <div class="my-2">ساحة الطيران</div>
+        <div class="my-2">{{ item.address }}</div>
         <div class="my-2 text-red-700">
           <i class="pi pi-phone ml-1"></i>
-          <span class="font-semibold">0773600800</span>
-        </div>
-      </div>
-      <div class="map-cards">
-        <div class="my-2 flex justify-content-between flex-wrap">
-          <span class="flex">فرع أربيل </span>
-          <i class="pi pi-angle-down flex"></i>
-        </div>
-        <div class="my-2">شارع 100 - قرب بارك بيشمركة</div>
-        <div class="my-2 text-red-700">
-          <i class="pi pi-phone ml-1"></i>
-          <span class="font-semibold">07734400880</span>
-        </div>
-      </div>
-      <div class="map-cards">
-        <div class="my-2 flex justify-content-between flex-wrap">
-          <span class="flex">فرع السليمانية </span>
-          <i class="pi pi-angle-down flex"></i>
-        </div>
-        <div class="my-2">بكرجو</div>
-        <div class="my-2 text-red-700">
-          <i class="pi pi-phone ml-1"></i>
-          <span class="font-semibold">07732220880</span>
-        </div>
-      </div>
-      <div class="map-cards">
-        <div class="my-2 flex justify-content-between flex-wrap">
-          <span class="flex">فرع بغداد </span>
-          <i class="pi pi-angle-down flex"></i>
-        </div>
-        <div class="my-2">حي الجامعة- مقابل شارع بكولاته</div>
-        <div class="my-2 text-red-700">
-          <i class="pi pi-phone ml-1"></i>
-          <span class="font-semibold"> 07726660880</span>
-        </div>
-      </div>
-      <div class="map-cards">
-        <div class="my-2 flex justify-content-between flex-wrap">
-          <span class="flex">فرع الموصل </span>
-          <i class="pi pi-angle-down flex"></i>
-        </div>
-        <div class="my-2">شارع 100 - كويتات</div>
-        <div class="my-2 text-red-700">
-          <i class="pi pi-phone ml-1"></i>
-          <span class="font-semibold"> 07736008800</span>
+          <span class="font-semibold"> {{ item.phoneNumber }} </span>
         </div>
       </div>
     </div>

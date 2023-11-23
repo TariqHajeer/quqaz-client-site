@@ -16,7 +16,7 @@ export class NavBarComponent implements OnInit {
   }
   setIndex() {
     switch (this.router.url) {
-      case '':
+      case '/':
         this.index = 0;
         break;
       case '/salary-orders':

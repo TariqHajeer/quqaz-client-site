@@ -1,30 +1,132 @@
 <div class="grid my-4 mx-8">
   <div class="col-12">
-    <p-card class="p-0 w-6">
+    <p-card class="p-0 w-6" [formGroup]="joinTeamForm">
       <div class="grid dir-rtl mr-7 mb-4">
         <div class="col-12">حمل السيرة الذاتية الخاصة بك</div>
         <div class="col-12">
-          <button class="btn nav-button">حمل السيرة الذاتية</button>
+          <p-fileUpload
+            mode="basic"
+            chooseLabel="حمل السيرة الذاتية "
+            [chooseIcon]="''"
+            name="photo[]"
+            accept=".pdf"
+            [maxFileSize]="5000000"
+            [style]="{
+              background: '#D9E8FF80',
+              'border-radius': '25px',
+              direction: 'rtl',
+              width: '214px',
+              height: '45px',
+              border: '#880817 1px solid',
+              color: '#880817',
+              padding: '10px',
+              'background-color': '#fff'
+            }"
+            [showUploadButton]="false"
+            [customUpload]="true"
+            [auto]="true"
+            (onSelect)="uploadFile($event)"
+            *ngIf="!joinTeamForm.value.file"
+            #file
+          ></p-fileUpload>
+          <div
+            class="flex justify-content-between flex-wrap file-name"
+            *ngIf="joinTeamForm.value.file"
+          >
+            <div class="flex" (click)="clearFile()">
+              <i class="pi pi-times m-2"></i>
+            </div>
+            <div class="flex">
+              {{ fileName.length > 15 ? fileName.substring(0, 15) : fileName }}
+            </div>
+          </div>
+          <small
+            class="text-red-600"
+            *ngIf="
+              joinTeamForm.controls['file'].errors &&
+              joinTeamForm.controls['file'].touched
+            "
+          >
+            {{ joinTeamForm.controls["file"].errors["required"]?.message }}
+          </small>
         </div>
       </div>
-      <div class="grid">
+      <div class="grid dir-rtl">
         <div class="col-12 md:col-6 dir-rtl">
           <label for="" class="text-right block mx-8 mb-2"> الاسم الأول</label>
-          <input type="text" pInputText class="w-8 mx-8" />
+          <input
+            type="text"
+            pInputText
+            class="w-8 mx-8"
+            formControlName="firstName"
+          />
         </div>
+        <small
+          class="text-red-600 w-8 mx-8"
+          *ngIf="
+            joinTeamForm.controls['firstName'].errors &&
+            joinTeamForm.controls['firstName'].touched
+          "
+        >
+          {{ joinTeamForm.controls["firstName"].errors["required"]?.message }}
+        </small>
         <div class="col-12 md:col-6 dir-rtl">
           <label for="" class="text-right block mx-8 mb-2"> الكنية </label>
-          <input type="text" pInputText class="w-8 mx-8" />
+          <input
+            type="text"
+            pInputText
+            class="w-8 mx-8"
+            formControlName="lastName"
+          />
+          <small
+            class="text-red-600 w-8 mx-8"
+            *ngIf="
+              joinTeamForm.controls['lastName'].errors &&
+              joinTeamForm.controls['lastName'].touched
+            "
+          >
+            {{ joinTeamForm.controls["lastName"].errors["required"]?.message }}
+          </small>
         </div>
         <div class="col-12 md:col-6 dir-rtl">
           <label for="" class="text-right block mx-8 mb-2"
             >البريد الالكتروني</label
           >
-          <input type="text" pInputText class="w-8 mx-8" />
+          <input
+            type="text"
+            pInputText
+            class="w-8 mx-8"
+            formControlName="email"
+          />
+          <small
+            class="text-red-600 w-8 mx-8"
+            *ngIf="
+              joinTeamForm.controls['email'].errors &&
+              joinTeamForm.controls['email'].touched
+            "
+          >
+            {{ joinTeamForm.controls["email"].errors["required"]?.message }}
+            {{ joinTeamForm.controls["email"].errors["email"]?.message }}
+          </small>
         </div>
         <div class="col-12 md:col-6 dir-rtl">
           <label for="" class="text-right block mx-8 mb-2"> رقم الجوال </label>
-          <input type="text" pInputText class="w-8 mx-8" />
+          <input
+            type="text"
+            pInputText
+            class="w-8 mx-8"
+            formControlName="phone"
+          />
+          <small
+            class="text-red-600 w-8 mx-8"
+            *ngIf="
+              joinTeamForm.controls['phone'].errors &&
+              joinTeamForm.controls['phone'].touched
+            "
+          >
+            {{ joinTeamForm.controls["phone"].errors["required"]?.message }}
+            {{ joinTeamForm.controls["phone"].errors["maxLength"]?.message }}
+          </small>
         </div>
         <div class="col-12">
           <p-button
@@ -32,6 +134,9 @@
             styleClass="p-button-danger bg-red-800 w-8 md:w-10 mx-8"
             icon="pi pi-arrow-circle-left"
             style="direction: ltr"
+            (onClick)="joinToTeam()"
+            [loading]="loading"
+            [disabled]="loading || this.joinTeamForm.invalid"
           ></p-button>
         </div>
       </div>

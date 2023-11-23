@@ -1,4 +1,30 @@
-<div class="grid">
+<div class="grid mt-4">
+  <div class="lg:col-3 md:col-4 sm:col-6 col-12" *ngFor="let item of clients">
+    <main>
+      <div class="card">
+        <img
+          [src]="
+            item?.logoPath ??
+            'https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80'
+          "
+          alt=""
+        />
+        <div class="card-content">
+          <h2>{{ item.name }}</h2>
+          <p>
+            {{ item.description }}
+          </p>
+          <a [href]="item.marketUrl" class="button">
+            <i class="pi pi-link"></i>
+            للمزيد اضغط هنا
+            <span class="material-symbols-outlined"> </span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<!-- <div class="grid">
   <div class="col-12 md:col-4 p-2">
     <p-galleria
       [value]="images"
@@ -192,4 +218,4 @@
       </ng-template>
     </p-galleria>
   </div>
-</div>
+</div> -->

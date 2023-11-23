@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/_services/home.service';
-import { CountryDto } from 'src/app/_store/country';
+import { BranchDto } from 'src/app/_store/branch';
 
 @Component({
   selector: 'app-salary-orders',
@@ -8,11 +8,11 @@ import { CountryDto } from 'src/app/_store/country';
   styleUrls: ['./salary-orders.component.scss']
 })
 export class SalaryOrdersComponent implements OnInit {
-  countries: CountryDto[] = [];
+  countries: BranchDto[] = [];
   responsiveOptions: any[] = [];
   constructor(private homeService: HomeService) { }
   ngOnInit(): void {
-    this.homeService.getCountries().subscribe({
+    this.homeService.getBranches().subscribe({
       next: (data) => {
         this.countries = data;
         this.responsiveOptions = [

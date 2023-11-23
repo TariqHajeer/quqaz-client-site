@@ -1,51 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/_services/home.service';
+import { MarketDto } from 'src/app/_store/market';
 
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.scss']
 })
-export class ClientsComponent {
-  images: any[] = [
-    {
-      itemImageSrc: '/assets/home/image/bg-image.png',
-      thumbnailImageSrc: '/assets/home/image/bg-image.png',
-      alt: 'Description for Image 1',
-      title: 'Title 1'
-    },
-    {
-      itemImageSrc: '/assets/home/image/bg-image.png',
-      thumbnailImageSrc: '/assets/home/image/bg-image.png',
-      alt: 'Description for Image 1',
-      title: 'Title 1'
-    },
-    {
-      itemImageSrc: '/assets/home/image/bg-image.png',
-      thumbnailImageSrc: '/assets/home/image/bg-image.png',
-      alt: 'Description for Image 1',
-      title: 'Title 1'
-    },
-    {
-      itemImageSrc: '/assets/home/image/bg-image.png',
-      thumbnailImageSrc: '/assets/home/image/bg-image.png',
-      alt: 'Description for Image 1',
-      title: 'Title 1'
-    },
+export class ClientsComponent implements OnInit {
+  clients: MarketDto[] = [
   ];
-
-  responsiveOptions: any[] = [
-    {
-      breakpoint: '1024px',
-      numVisible: 5
-    },
-    {
-      breakpoint: '768px',
-      numVisible: 3
-    },
-    {
-      breakpoint: '560px',
-      numVisible: 1
-    }
-  ];
+  constructor(private homeService: HomeService) { }
+  ngOnInit(): void {
+    this.homeService.market().subscribe({
+      next: (value) => {
+        this.clients = value;
+      },
+    })
+  }
 
 }
